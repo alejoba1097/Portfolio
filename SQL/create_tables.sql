@@ -37,6 +37,7 @@ CREATE TABLE Roles(
     RoleDescription varchar(255) NOT NULL,
     StartDate date NOT NULL,
     EndDate date,
+    Responsibilities varchar(255),
     PRIMARY KEY (RoleID)
 );
 
