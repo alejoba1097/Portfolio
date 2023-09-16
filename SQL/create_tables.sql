@@ -11,6 +11,7 @@ CREATE TABLE Employees(
     EmployeeID int NOT NULL AUTO_INCREMENT,
     FirstName varchar(255) NOT NULL,
     LastName varchar(255) NOT NULL,
+    Email varchar(255) NOT NULL,
     HireDate date NOT NULL,
     PhoneNumber varchar(13),
     CurrentStatus varchar(10) NOT NULL CHECK (CurrentStatus IN ('Active', 'Not Active')),
