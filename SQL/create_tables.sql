@@ -17,7 +17,7 @@ CREATE TABLE Employees(
     CurrentStatus varchar(10) NOT NULL CHECK (CurrentStatus IN ('Active', 'Not Active')),
     ManagerID int NOT NULL,
     DepartmentID int NOT NULL,
-    RoleId int NOT NULL,
+    RoleID int NOT NULL,
     PRIMARY KEY (EmployeeID)
 );
 
