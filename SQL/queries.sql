@@ -30,3 +30,62 @@ FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 ESCAPED BY ''
 LINES TERMINATED BY '\n';
+
+/*- How many employees are per project?*/
+
+/*List all the employees assigned to each project*/
+SELECT
+    P.ProjectID, P.ProjectName,
+    E.FirstName, E.LastName
+FROM Projects AS P
+INNER JOIN ProjectsEmployees AS PE
+    ON P.ProjectID=PE.ProjectID
+INNER JOIN Employees AS E
+    ON PE.EmployeeID=E.EmployeeID;
+
+/*Group to count how many employees are there per project*/
+SELECT
+    P.ProjectID, P.ProjectName,
+    COUNT(P.ProjectID) As EmployeesNumber
+FROM Projects AS P
+INNER JOIN ProjectsEmployees AS PE
+    ON P.ProjectID=PE.ProjectID
+GROUP BY P.ProjectID, P.ProjectName;
+
+/*- And per department?*/
+SELECT
+    D.DepartmentID, D.DepartmentName,
+    COUNT(D.DepartmentID) AS EmployeesNumber
+FROM Departments AS D
+INNER JOIN Employees AS E
+    ON D.DepartmentID=E.DepartmentID
+GROUP BY D.DepartmentID, D.DepartmentName;
+
+/*- And per role?*/
+SELECT
+    R.RoleID, R.RoleName,
+    COUNT(R.RoleID) AS EmployeesNumber
+FROM Roles AS R
+INNER JOIN Employees AS E
+    ON R.RoleID=E.RoleID
+GROUP BY R.RoleID, R.RoleName;
+
+/*- How many projects are allocated in each one of the Locations?*/
+SELECT
+    L.LocationID, L.LocationName,
+    COUNT(L.LocationID) AS ProjectsNumber
+FROM Locations AS L
+INNER JOIN Projects AS P
+    ON L.LocationID=P.LocationID
+GROUP BY L.LocationID, L.LocationName;
+
+/*And how many employees per Location?*/
+SELECT
+    L.LocationID, L.LocationName,
+    COUNT(L.LocationID) AS EmployeesNumber
+FROM Locations AS L
+INNER JOIN Projects AS P
+    ON L.LocationID=P.LocationID
+INNER JOIN ProjectsEmployees AS PE
+    ON P.ProjectID=PE.ProjectID
+GROUP BY L.LocationID, L.LocationName;

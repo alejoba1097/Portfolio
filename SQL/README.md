@@ -46,16 +46,67 @@ The CEO also shouldn't have any manager assigned, and should be the manager of a
 
 - How many employees are per project?
 
+```
+SELECT
+    P.ProjectID, P.ProjectName,
+    COUNT(P.ProjectID) As EmployeesNumber
+FROM Projects AS P
+INNER JOIN ProjectsEmployees AS PE
+    ON P.ProjectID=PE.ProjectID
+GROUP BY P.ProjectID, P.ProjectName;
+```
+
 - And per department?
+```
+SELECT
+    D.DepartmentID, D.DepartmentName,
+    COUNT(D.DepartmentID) AS EmployeesNumber
+FROM Departments AS D
+INNER JOIN Employees AS E
+    ON D.DepartmentID=E.DepartmentID
+GROUP BY D.DepartmentID, D.DepartmentName;
+```
 
 - And per role?
+```
+SELECT
+    R.RoleID, R.RoleName,
+    COUNT(R.RoleID) AS EmployeesNumber
+FROM Roles AS R
+INNER JOIN Employees AS E
+    ON R.RoleID=E.RoleID
+GROUP BY R.RoleID, R.RoleName;
+```
+
+- How many projects are allocated in each one of the Locations?
+```
+SELECT
+    L.LocationID, L.LocationName,
+    COUNT(L.LocationID) AS ProjectsNumber
+FROM Locations AS L
+INNER JOIN Projects AS P
+    ON L.LocationID=P.LocationID
+GROUP BY L.LocationID, L.LocationName;
+```
+
+- And how many employees per Location?
+```
+SELECT
+    L.LocationID, L.LocationName,
+    COUNT(L.LocationID) AS EmployeesNumber
+FROM Locations AS L
+INNER JOIN Projects AS P
+    ON L.LocationID=P.LocationID
+INNER JOIN ProjectsEmployees AS PE
+    ON P.ProjectID=PE.ProjectID
+GROUP BY L.LocationID, L.LocationName;
+```
 
 - What data inconsistencies we have?
     - Since the data was generated randomly, it's possible that there's not a clear hierarchy with the roles (e.g., an agent has a team of Directors assigned, CEO in HR, more than one CEO, manager as manager of himself, etc.)
-- How many projects are allocated in each one of the Locations?
+
 
 ## Fixes to the data
 - Promote all the managers to their corresponding role
     - The CEO shouldn't have a manager, so the ManagerID FK needs to be altered to accept NULL values
 - Redistribute the teams so that each manager has a better number of collaborators.
-- 
