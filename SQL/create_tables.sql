@@ -13,7 +13,7 @@ CREATE TABLE Employees(
     LastName varchar(255) NOT NULL,
     Email varchar(255) NOT NULL,
     HireDate date NOT NULL,
-    PhoneNumber varchar(13),
+    PhoneNumber varchar(50),
     CurrentStatus varchar(10) NOT NULL CHECK (CurrentStatus IN ('Active', 'Not Active')),
     ManagerID int NOT NULL,
     DepartmentID int NOT NULL,
