@@ -1,6 +1,8 @@
 # Employees Management System with SQL
 
-## 
+##  Data Structure and ER Diagram
+
+![ER Diagram](https://github.com/alejoba1097/Portfolio/blob/SQL-Projects/SQL/EmployeesManagementSystem.drawio.png)
 
 ## Data Generation
 
