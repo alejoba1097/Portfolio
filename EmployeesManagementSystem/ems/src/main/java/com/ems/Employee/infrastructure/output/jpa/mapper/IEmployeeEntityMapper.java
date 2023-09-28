@@ -12,7 +12,7 @@ import java.util.Optional;
         unmappedSourcePolicy = ReportingPolicy.IGNORE,
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface IEmployeeEntityMapper {
-    Employee toEmployee(Optional<EmployeeEntity> employeeEntity);
+    Employee toEmployee(EmployeeEntity employeeEntity);
     List<Employee> toEmployeeList(List<EmployeeEntity> employeeEntityList);
 
     EmployeeEntity toEmployeeEntity(Employee employee);

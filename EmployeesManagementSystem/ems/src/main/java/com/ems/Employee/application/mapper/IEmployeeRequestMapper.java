@@ -12,7 +12,7 @@ import java.util.List;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 
 public interface IEmployeeRequestMapper {
-    Employee toEmployee(EmployeeRequestDto employee);
+    Employee toEmployee(EmployeeRequestDto employeeRequestDto);
 
     List<Employee> toEmployeeList(List<EmployeeRequestDto> employeeRequestDtoList);
 }

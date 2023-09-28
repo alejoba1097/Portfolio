@@ -27,7 +27,7 @@ public class EmployeeRestController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<EmployeeResponseDto> getEmployee(@PathVariable Long id){
         return new ResponseEntity<>(
                 employeeResponseMapper.toEmployeeResponseDto(employeeServicePort.getEmployee(id)),

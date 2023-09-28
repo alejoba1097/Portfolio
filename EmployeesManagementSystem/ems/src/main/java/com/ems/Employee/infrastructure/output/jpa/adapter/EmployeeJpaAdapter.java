@@ -2,12 +2,14 @@ package com.ems.Employee.infrastructure.output.jpa.adapter;
 
 import com.ems.Employee.domain.api.IEmployeeRepositoryPort;
 import com.ems.Employee.domain.model.Employee;
+import com.ems.Employee.infrastructure.output.jpa.entity.EmployeeEntity;
 import com.ems.Employee.infrastructure.output.jpa.mapper.IEmployeeEntityMapper;
 import com.ems.Employee.infrastructure.output.jpa.repository.IEmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -27,7 +29,7 @@ public class EmployeeJpaAdapter implements IEmployeeRepositoryPort {
 
     @Override
     public Employee getEmployee(Long id) {
-        return employeeEntityMapper.toEmployee(employeeRepository.findById(id));
+        return employeeEntityMapper.toEmployee(employeeRepository.findById(id).get());
     }
 
     @Override
