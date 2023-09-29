@@ -5,11 +5,13 @@ import com.ems.Employee.application.dto.EmployeeResponseDto;
 import com.ems.Employee.application.mapper.IEmployeeRequestMapper;
 import com.ems.Employee.application.mapper.IEmployeeResponseMapper;
 import com.ems.Employee.domain.api.IEmployeeServicePort;
+import com.ems.Employee.infrastructure.exceptions.EmployeeNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -43,7 +45,7 @@ public class EmployeeRestController {
         );
     }
 
-    @PutMapping
+    @PutMapping("{id}")
     public ResponseEntity<Void> updateEmployee(@RequestBody EmployeeRequestDto employeeRequestDto){
         employeeServicePort.updateEmployee(employeeRequestMapper.toEmployee(employeeRequestDto));
         return new ResponseEntity(HttpStatus.CREATED);

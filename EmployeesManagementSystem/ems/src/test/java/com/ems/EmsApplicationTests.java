@@ -33,4 +33,9 @@ class EmsApplicationTests {
 		assertThat(actual).hasSameClassAs(target);
 		assertThat(actual).usingRecursiveComparison().isEqualTo(target);
 	}
+
+	@Test
+	public void should(){
+
+	}
 }
