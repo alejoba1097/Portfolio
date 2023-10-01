@@ -1,0 +1,37 @@
+# name: ems
+
+services:
+  mysql_db:
+    image: mysql:latest
+    container_name: "mysql_bd"
+    restart: always
+    environment:
+      MYSQL_USER: 'alejoba1097'
+      MYSQL_PASSWORD: 'A801b5e55f2*'
+      MYSQL_ROOT_PASSWORD: 'A801b5e55f2*'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
+
+  java_app:
+    image: amazoncorretto:17
+    container_name: "java_app"
+    ports:
+      - '8090:8090'
+    expose:
+      - '8090'
+    volumes:
+     - ./ems:/home/ems
+    command: ['java', '-jar', '/home/ems/build/libs/ems-0.0.1-SNAPSHOT.jar']
+  
+  #postman:
+  #  image: postman/newman:latest
+  #  depends_on:
+  #    - "mysql_db"
+  #    - "java_app"
+  #  command:
+  #    run "https://ems_mysql_db_1:8090/rest/all"
+  #    -r cli

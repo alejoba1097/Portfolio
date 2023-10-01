@@ -1,10 +1,10 @@
 /*Drop database to create it all over*/
-DROP DATABASE IF EXISTS EmployeesManagementSystem;
+DROP DATABASE IF EXISTS EMS;
 
 /*Create and use database*/
-CREATE DATABASE EmployeesManagementSystem;
+CREATE DATABASE EMS;
 
-USE EmployeesManagementSystem;
+USE EMS;
 
 /*Create table Employees*/
 CREATE TABLE Employees(
