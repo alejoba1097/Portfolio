@@ -14,7 +14,7 @@ services:
     expose:
       - '3306'
     volumes:
-      - /var/lib/mysql:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
 
   java_app:
     image: amazoncorretto:17
@@ -27,11 +27,6 @@ services:
      - ./ems:/home/ems
     command: ['java', '-jar', '/home/ems/build/libs/ems-0.0.1-SNAPSHOT.jar']
   
-  #postman:
-  #  image: postman/newman:latest
-  #  depends_on:
-  #    - "mysql_db"
-  #    - "java_app"
-  #  command:
-  #    run "https://ems_mysql_db_1:8090/rest/all"
-  #    -r cli
+volumes:
+  mysql_data:
+    external: true
