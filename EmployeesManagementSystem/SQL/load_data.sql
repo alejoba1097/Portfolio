@@ -1,6 +1,6 @@
 /*Script to load the mock data to the created Employees Management Database*/
 
-USE EmployeesManagementSystem;
+USE EMS;
 
 /*Allow to insert foreign keys without having data in the other table*/
 SET FOREIGN_KEY_CHECKS = 0;
@@ -8,7 +8,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 /*Employees*/
 LOAD DATA
     LOCAL
-    INFILE '/home/alejoba1097/Portfolio/SQL/data/employees_data.csv'
+    INFILE '/home/alejoba1097/Portfolio/EmployeesManagementSystem/SQL/data/employees_data.csv'
     INTO TABLE Employees
     FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
@@ -17,7 +17,7 @@ LOAD DATA
 /*Departments*/
 LOAD DATA
     LOCAL
-    INFILE '/home/alejoba1097/Portfolio/SQL/data/departments_data.csv'
+    INFILE '/home/alejoba1097/Portfolio/EmployeesManagementSystem/SQL/data/departments_data.csv'
     INTO TABLE Departments
     FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
@@ -26,7 +26,7 @@ LOAD DATA
 /*Roles*/
 LOAD DATA
     LOCAL
-    INFILE '/home/alejoba1097/Portfolio/SQL/data/roles_data.csv'
+    INFILE '/home/alejoba1097/Portfolio/EmployeesManagementSystem/SQL/data/roles_data.csv'
     INTO TABLE Roles
     FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
@@ -35,7 +35,7 @@ LOAD DATA
 /*Projects*/
 LOAD DATA
     LOCAL
-    INFILE '/home/alejoba1097/Portfolio/SQL/data/projects_data.csv'
+    INFILE '/home/alejoba1097/Portfolio/EmployeesManagementSystem/SQL/data/projects_data.csv'
     INTO TABLE Projects
     FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
@@ -44,7 +44,7 @@ LOAD DATA
 /*Locations*/
 LOAD DATA
     LOCAL
-    INFILE '/home/alejoba1097/Portfolio/SQL/data/locations_data.csv'
+    INFILE '/home/alejoba1097/Portfolio/EmployeesManagementSystem/SQL/data/locations_data.csv'
     INTO TABLE Locations
     FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
@@ -53,7 +53,7 @@ LOAD DATA
 /*ProjectsEmployees*/
 LOAD DATA
     LOCAL
-    INFILE '/home/alejoba1097/Portfolio/SQL/data/projects_employees_data.csv'
+    INFILE '/home/alejoba1097/Portfolio/EmployeesManagementSystem/SQL/data/projects_employees_data.csv'
     INTO TABLE ProjectsEmployees
     FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
